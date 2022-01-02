@@ -14,6 +14,7 @@ limiter = Limiter(app, key_func=get_remote_address, default_limits=["10 per minu
 CORS(app, origins=setting.ALLOW_COR_ORIGINS)
 auth = HTTPBasicAuth()
 users = setting.USERS
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # SendGrid
 @app.route("/sendmail", methods=['POST'])
